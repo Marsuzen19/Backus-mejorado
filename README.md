@@ -2,58 +2,38 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.27.
 
-## Development server
+# Backus Ventas PWA - Sistema de Pedidos Offline/Online
 
-To start a local development server, run:
+Aplicación Web Progresiva (PWA) desarrollada en **Angular 19** y **Bootstrap**, diseñada para optimizar el registro de pedidos de los vendedores de Backus con soporte completo de persistencia local mediante **IndexedDB** y sincronización inteligente según el estado de conectividad.
 
-```bash
-ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+##  Pasos para Ejecutar el Proyecto
 
-## Code scaffolding
+Sigue estos pasos en tu terminal para clonar, configurar y poner en marcha el proyecto localmente:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. **Clonar o abrir el repositorio** en tu entorno local.
+2. **Instalar las dependencias** del proyecto:
+   ```bash
+   npm install
 
-```bash
-ng generate component component-name
-```
+Mejoras Implementadas
+Catálogo Reactivo Avanzado: Búsqueda en tiempo real por nombre (insensible a mayúsculas/minúsculas) y filtros combinables por categoría sobre un catálogo de 16 productos de Backus.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Validaciones Estrictas en Carrito: Restricción de cantidades para aceptar únicamente números enteros positivos mayores que cero (bloqueando letras, ceros, negativos y decimales).
 
-```bash
-ng generate --help
-```
+Persistencia Local Robusta (IndexedDB): Almacenamiento estructurado de pedidos locales con fecha, líneas detalladas, totales formateados a dos decimales, origen (ONLINE/OFFLINE) y estado (PENDIENTE/SINCRONIZADO).
 
-## Building
+Sistema de Notificaciones Modernas (Toasts): Alertas flotantes animadas y contextuales para acciones de éxito, advertencias, errores y avisos de conectividad.
 
-To build the project run:
+Detección Automática de Red: Uso de eventos nativos del navegador (window.online y window.offline) para alternar el estado de conectividad y sincronizar automáticamente los pedidos pendientes al recuperar internet.
 
-```bash
-ng build
-```
+Historial Local con Vista de Detalle: Consulta del listado completo de pedidos guardados en el dispositivo con un modal interactivo para revisar el desglose por línea de productos.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Limitaciones Conocidas
+Entorno de Simulación Frontend: Al no contar con un servidor backend o API REST real conectada, la sincronización simula la actualización de estados de PENDIENTE a SINCRONIZADO de forma local en IndexedDB.
 
-## Running unit tests
+Persistencia Exclusiva del Navegador: Los datos dependen del almacenamiento IndexedDB del navegador actual; si el usuario borra los datos de navegación o el caché del sitio, el historial local se reiniciará.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Alcance Offline Limitado al Catálogo Local: Las imágenes o recursos externos que requieran conexión a internet externa no podrán cargarse si el dispositivo pierde por completo el acceso a la red antes de almacenar los recursos en el caché del navegador.
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
